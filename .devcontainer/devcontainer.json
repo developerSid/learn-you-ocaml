@@ -1,0 +1,28 @@
+{
+  "name": "OCaml Development Container",
+  "image": "ocaml/opam:fedora-40-ocaml-5.2",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ocamllabs.ocaml-platform",  // OCaml Platform extension for VSCode (optional)
+        "ms-vscode-remote.remote-containers",
+        "ms-azuretools.vscode-docker"  // Optional: Docker extension for managing containers
+      ]
+    }
+  },
+  "postCreateCommand": "./.devcontainer/setup.sh",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "/bin/bash",
+    "editor.formatOnSave": true
+  },
+  "remoteUser": "opam",
+  "privileged": true,  // Required to run Docker in Docker
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"  // Mount Docker socket
+  ],
+  "runArgs": [
+    "--privileged"  // Required to run Docker-in-Docker
+  ]
+}
