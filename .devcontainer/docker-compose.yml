@@ -1,0 +1,19 @@
+name: learn-you-ocaml
+networks:
+  learnnet:
+    name: learnnet
+
+services:
+  learn-you-ocaml:
+    build:
+      dockerfile: Dockerfile
+      args:
+        DOCKER_GID: ${DOCKER_GID:-999}
+    environment:
+      - DOCKER_GID=${DOCKER_GID:-999}
+    container_name: learn-you-ocaml
+    hostname: learnyouocaml
+    networks:
+      - learnnet
+    stop_signal: SIGKILL
+    command: sleep infinity

@@ -1,28 +1,32 @@
 {
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "OCaml Development Container",
-  "image": "ocaml/opam:fedora-40-ocaml-5.2",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "learn-you-ocaml",
+  "build": {
+    "args": {
+      "DOCKER_GID": "${localEnv:DOCKER_GID}"
+    }
+  },
   "features": {},
   "customizations": {
     "vscode": {
       "extensions": [
-        "ocamllabs.ocaml-platform",  // OCaml Platform extension for VSCode (optional)
+        "ocamllabs.ocaml-platform", // OCaml Platform extension for VSCode (optional)
         "ms-vscode-remote.remote-containers",
-        "ms-azuretools.vscode-docker"  // Optional: Docker extension for managing containers
+        "ms-azuretools.vscode-docker" // Optional: Docker extension for managing containers
       ]
     }
   },
-  "postCreateCommand": "./.devcontainer/setup.sh",
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "/bin/bash",
-    "editor.formatOnSave": true
-  },
   "remoteUser": "opam",
-  "privileged": true,  // Required to run Docker in Docker
+  "privileged": true, // Required to run Docker in Docker
+  "postStartCommand": "direnv allow /workspace",
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"  // Mount Docker socket
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind", // Mount Docker socket
+    "source=${localEnv:HOME}/.ssh,target=/home/opam/.ssh,type=bind"
   ],
   "runArgs": [
-    "--privileged"  // Required to run Docker-in-Docker
+    "--privileged" // Required to run Docker-in-Docker
   ]
 }
