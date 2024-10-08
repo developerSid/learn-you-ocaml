@@ -68,3 +68,4 @@ tags
 [._]*.un~
 
 # End of https://www.toptal.com/developers/gitignore/api/ocaml,linux,vim
+node_modules
