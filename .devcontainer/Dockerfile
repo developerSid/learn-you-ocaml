@@ -27,6 +27,9 @@ RUN dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/doc
 USER opam
 
 RUN RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN mkdir -p ~/.local/bin && \
+    curl -L https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz \
+    | tar -xz -C ~/.local/bin
 RUN mkdir -p /home/opam/.config && \
     git clone https://github.com/developerSid/nvim.git /home/opam/.config/nvim && \
     git clone https://github.com/developerSid/dotfiles /home/opam/.dotfiles && \
