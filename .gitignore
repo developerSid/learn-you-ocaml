@@ -69,3 +69,10 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/ocaml,linux,vim
 node_modules
+.lock
+install
+.filesystem-clock
+log
+.db
+.digest-db
+.to-delete-in-source-tree

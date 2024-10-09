@@ -19,7 +19,7 @@
  (name learn_you_ocaml)
  (synopsis "My attempt at learning OCaml")
  (description "Learning OCaml for the second time")
- (depends ocaml=5.2.0 dune)
+ (depends dune)
  (tags
   (topics "to describe" your project)))
 

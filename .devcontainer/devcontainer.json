@@ -20,9 +20,9 @@
   },
   "remoteUser": "opam",
   "privileged": true, // Required to run Docker in Docker
-  "postStartCommand": "direnv allow /workspace",
+  "postStartCommand": "direnv allow /learn-you-ocaml",
   "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder},target=/learn-you-ocaml,type=bind,consistency=cached",
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind", // Mount Docker socket
     "source=${localEnv:HOME}/.ssh,target=/home/opam/.ssh,type=bind"
   ],

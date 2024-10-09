@@ -16,4 +16,4 @@ services:
     networks:
       - learnnet
     stop_signal: SIGKILL
-    command: sleep infinity
+    command: dune build -w --root=/learn-you-ocaml

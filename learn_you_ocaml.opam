@@ -10,7 +10,6 @@ homepage: "https://github.com/developerSid/learn-you-ocaml"
 doc: "https://url/to/documentation"
 bug-reports: "https://github.com/developerSid/learn-you-ocaml/issues"
 depends: [
-  "ocaml"
   "dune" {>= "3.16"}
   "odoc" {with-doc}
 ]
