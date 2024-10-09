@@ -7,5 +7,5 @@ cd ../..
 
 export DOCKER_GID=$(getent group docker | cut -d: -f3)
 
-devcontainer build --workspace-folder .
+devcontainer build --no-cache --workspace-folder .
 
