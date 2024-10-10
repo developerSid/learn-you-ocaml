@@ -5,12 +5,14 @@ description: "Learning OCaml for the second time"
 maintainer: ["Gary Myers"]
 authors: ["Gary Myers"]
 license: "LICENSE"
-tags: ["topics" "to describe" "your" "project"]
 homepage: "https://github.com/developerSid/learn-you-ocaml"
 doc: "https://url/to/documentation"
 bug-reports: "https://github.com/developerSid/learn-you-ocaml/issues"
 depends: [
   "dune" {>= "3.16"}
+  "base"
+  "stdio"
+  "unix"
   "odoc" {with-doc}
 ]
 build: [
