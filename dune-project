@@ -19,6 +19,6 @@
  (name learn_you_ocaml)
  (synopsis "My attempt at learning OCaml")
  (description "Learning OCaml for the second time")
- (depends dune base stdio unix))
+ (depends dune base stdio))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

@@ -1,4 +1,4 @@
 (executable
  (public_name learn_you_ocaml)
  (name main)
- (libraries learn_you_ocaml base stdio unix))
+ (libraries learn_you_ocaml base stdio))

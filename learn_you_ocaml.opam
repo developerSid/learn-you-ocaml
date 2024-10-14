@@ -12,7 +12,6 @@ depends: [
   "dune" {>= "3.16"}
   "base"
   "stdio"
-  "unix"
   "odoc" {with-doc}
 ]
 build: [
