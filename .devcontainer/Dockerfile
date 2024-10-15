@@ -34,7 +34,7 @@ RUN mkdir -p /home/opam/.config && \
     git clone https://github.com/developerSid/nvim.git /home/opam/.config/nvim && \
     git clone https://github.com/developerSid/dotfiles /home/opam/.dotfiles && \
     /home/opam/.dotfiles/install.sh && \
-    opam install dune merlin ocamlformat ocaml-lsp-server && \
+    opam install dune merlin ocamlformat ocaml-lsp-server utop && \
     echo "eval \$(opam env)" >> /home/opam/.localConfig
 
 WORKDIR /learn-you-ocaml
