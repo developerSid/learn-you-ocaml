@@ -1,0 +1,7 @@
+profile = conventional
+break-separators = after
+break-infix = fit-or-vertical
+max-indent = 2
+margin = 120
+ocp-indent-compat = true
+
