@@ -1,2 +1,5 @@
 (test
- (name test_learn_you_ocaml))
+ (name test_learn_you_ocaml)
+ (preprocess
+  (pps ppx_inline_test ppx_assert))
+ (libraries learn_you_ocaml base stdio))
