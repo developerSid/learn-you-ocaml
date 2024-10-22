@@ -3,7 +3,7 @@ FROM ocaml/opam:fedora-40-ocaml-5.2
 ARG DOCKER_GID=999
 USER root
 
-RUN dnf update -y &&\
+RUN dnf update -y && \
     dnf remove -y docker \
     docker-client \
     docker-client-latest \
@@ -18,10 +18,11 @@ RUN dnf update -y &&\
 RUN dnf install -y neovim git dnf-plugins-core zsh curl lsd direnv bat
 RUN groupadd -g $DOCKER_GID docker || groupmod -g $DOCKER_GID docker
 
-RUN dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo && \
-    dnf install -y docker-ce-cli docker-compose-plugin && \
-    chown -R opam:opam /home/opam && \
-    usermod -aG docker opam
+RUN dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+RUN dnf install -y docker-ce-cli docker-compose-plugin
+RUN chown opam:opam /home/opam
+RUN chown -R opam:opam /home/opam/.local
+RUN usermod -aG docker opam
 
 
 USER opam
