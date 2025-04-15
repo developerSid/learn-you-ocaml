@@ -76,3 +76,4 @@ log
 .db
 .digest-db
 .to-delete-in-source-tree
+.idea

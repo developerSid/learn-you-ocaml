@@ -1,4 +1,4 @@
-FROM ocaml/opam:fedora-40-ocaml-5.2 
+FROM ocaml/opam:fedora-41-ocaml-5.3
 
 ARG DOCKER_GID=999
 USER root
@@ -24,17 +24,11 @@ RUN chown opam:opam /home/opam
 RUN chown -R opam:opam /home/opam/.local
 RUN usermod -aG docker opam
 
-
 USER opam
 
 RUN RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-RUN mkdir -p ~/.local/bin && \
-    curl -L https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz \
-    | tar -xz -C ~/.local/bin
 RUN mkdir -p /home/opam/.config && \
-    git clone https://github.com/developerSid/nvim.git /home/opam/.config/nvim && \
-    git clone https://github.com/developerSid/dotfiles /home/opam/.dotfiles && \
-    /home/opam/.dotfiles/install.sh && \
+    opam update && \
     opam install dune merlin ocamlformat ocaml-lsp-server utop && \
     echo "eval \$(opam env)" >> /home/opam/.localConfig
 

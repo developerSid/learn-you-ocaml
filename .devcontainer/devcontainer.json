@@ -9,22 +9,18 @@
     }
   },
   "features": {},
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ocamllabs.ocaml-platform", // OCaml Platform extension for VSCode (optional)
-        "ms-vscode-remote.remote-containers",
-        "ms-azuretools.vscode-docker" // Optional: Docker extension for managing containers
-      ]
-    }
-  },
+  "customizations": {},
   "remoteUser": "opam",
   "privileged": true, // Required to run Docker in Docker
   "postStartCommand": "direnv allow /learn-you-ocaml",
   "mounts": [
     "source=${localWorkspaceFolder},target=/learn-you-ocaml,type=bind,consistency=cached",
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind", // Mount Docker socket
-    "source=${localEnv:HOME}/.ssh,target=/home/opam/.ssh,type=bind"
+    "source=${localEnv:HOME}/.ssh,target=/home/opam/.ssh,type=bind",
+    "source=${localWorkspaceFolder},target=/workspaces/myers-estate,type=bind,consistency=cached",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.config/nvim,target=/home/node/.config/nvim,type=bind,consistency=cached",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.dotfiles,target=/home/node/.dotfiles,type=bind,consistency=cached"
   ],
   "runArgs": [
     "--privileged" // Required to run Docker-in-Docker
